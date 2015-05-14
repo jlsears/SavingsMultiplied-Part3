@@ -1,0 +1,191 @@
+
+.part-one {
+    background-color: #D5F1F0;    
+}
+
+.part-two {
+    background-color: #69C4CC;
+}
+
+.lt-blue {
+    background-color: #D5F1F0;
+}
+
+.white {
+    background-color: white;
+}
+
+.dk-blue {
+    background-color: #69C4CC;
+}
+
+.top {
+    padding-top: 60px;
+}
+
+.green {
+    background-color: #8db639;
+}
+
+.dk-purp {
+    background-color: #6F1549;
+}
+
+.br-pink {
+    background-color: #E9168C;
+}
+
+
+/****************************
+TOP Section
+****************************/
+
+.signing-up {
+    padding-left: 1300px;
+    color: #69C4CC;
+}
+
+.buttons-tagline {
+    margin-top: 115px;
+}
+
+.top-height {
+    height: 200px;
+}
+
+.right-curve {
+    border-top-right-radius: 50px;
+}
+
+.left-curve {
+    border-top-left-radius: 50px;
+}
+
+/****************************
+BUTTONS
+****************************/
+
+.btn-group-xs>.btn, .btn-xs {
+  padding: 1px 40px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+
+
+/****************************
+NAV BAR AREA
+****************************/
+
+
+.nav-dothis {
+    background-color: #F3CECD;
+    font-family: Corben;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    clear: both;
+    padding-left: 0;
+}
+
+.navbar-default {
+    background-color: #F3CECD;
+    float: none;
+    padding-left: 20%;
+    padding-right: 10%;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: #660033;
+  padding-left: 60px;
+}
+
+/****************************
+BELOW NAV BAR
+****************************/
+
+.to-right {
+    float: right;
+}
+
+.kids-margin {
+    margin-bottom: 10px;
+}
+
+.bottom-height {
+    height: 175px;
+}
+
+.sm-bottom-height {
+    height: 10px;
+}
+
+.center-it {
+    text-align: center;
+}
+
+
+/****************************
+Owlies
+****************************/
+
+.sm-owlie1 {
+    font-family: Corben;
+    font-weight: bold;
+    color: #8db639;
+    width: 100%;
+}
+
+.sm-owlie2 {
+    font-family: Corben;
+    width: 100%;
+    color: #69C4CC;
+    font-size: 20px;
+
+}
+
+.many-owlies {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.many-owlies img {
+    margin: 0 40px;
+}
+
+.line-repeat {
+    background-repeat: repeat-x;
+    background: url("../images/homepage/dotted_line_44x9.png");
+    height: 10px;
+}
+
+
+/****************************
+BOTTOM OF PAGE
+****************************/
+
+.link-list {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.bottom {
+    padding-bottom: 150px;
+    text-align: center;
+    color: white;
+    font-family: Arial;
+}
+
+li {
+     display: inline;
+}
+
+.right-curve2 {
+    border-bottom-right-radius: 50px;
+}
+
+.left-curve2 {
+    border-bottom-left-radius: 50px;
+}
+
