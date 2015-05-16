@@ -2,16 +2,16 @@ doctype html(lang='en')
 head
   title: Registration
 
-body
+  include ./pageheader.jade
 
-h1 Register for Your Account
- 
+  h1 Register for Your Account
+    form#registerForm(method='POST', action='/user/register')
+      .formfield
+        .formfield--prompt Username
+        input#username(type='text', name='username')
+      .formfield
+        .formfield--prompt Password
+        input#password(type='password', name='password')
+      input.submitButton(type='submit')
 
-  form#registerForm(method='POST', action='/user/register')
-    .formfield
-      .formfield--prompt Username
-      input#username(type='text', name='username')
-    .formfield
-      .formfield--prompt Password
-      input#password(type='password', name='password')
-    input.submitButton(type='submit')
+  include ./pagefooter.jade
