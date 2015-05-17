@@ -1,11 +1,11 @@
 var Q = require("q");
 var express = require('express');
 var app = express.Router();
-var UserController = require("../userController");
-var UserModel = require("../models/user");
-//var Merch = require("../models/merch");
-//var TheMerch = require('../models/merch');
-//var merchList = [];
+var UserController = require('../userController');
+var UserModel = require('../models/user');
+var Merch = require('../models/merch');
+var TheMerch = require('../models/merch');
+var merchList = [];
 
 
 // Send the error message back to the client
@@ -37,10 +37,10 @@ app.get("/login", function(req, res) {
 app.post("/register", function (req, res) {
   console.log("hit post/register form");
   var newUser = new UserModel(req.body);
-  console.log('Here is the new user', newUser)
+  console.log('Here is the new user', newUser);
 
   newUser.save(function (err, user) {
-    console.log("save function done")
+    console.log("save function done");
     if (err) {
       sendError(req, res, err, "Failed to register user");
     } else {
@@ -68,21 +68,11 @@ app.post("/login", function (req, res) {
       console.log('Find any merch that is assigned to the user');
 
       // Now find the merch that belong to the user
-      getUserMerch(validUser._id)
-        .then(function (merch) {
-          // Render the merch list
-          res.redirect("/merch/list");
+          res.render("auction");
         })
         .fail(function (err) {
-          sendError(req, res, {errors: err.message}, "Failed")
+          sendError(req, res, {errors: err.message}, "Failed");
         });
-    })
-
-    // After the database call is complete but failed
-    .fail(function (err) {
-      console.log('Failed looking up the user');
-      sendError(req, res, {errors: err.message}, "Failed")
-    })
 });
 
 
@@ -92,7 +82,7 @@ app.get("/profile", function (req, res) {
 
   if (user !== null) {
     getUserMerch(user._id).then(function (merch) {
-      res.render("userProfile", {
+      res.render("profile", {
         username: user.username,
         movies: merch
       });
@@ -102,6 +92,7 @@ app.get("/profile", function (req, res) {
   }
 
 });
+
 
 
 module.exports = app;

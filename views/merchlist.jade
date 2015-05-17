@@ -1,6 +1,18 @@
 doctype html(lang='en')
 head
+  title: Registration
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css')
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css')
+  link(rel='stylesheet', href='../stylesheets/registration.css')
 
-body
+  include ./pageheader.jade
 
-p Testing merch list page rendering
+  h4 The page for seller list data
+
+  - for (var m = 0; m < merch.length; m++)
+    var currentMerch = merch[m];
+      tr#merch_currentMerch._id
+        td #{currentMerch.title}
+        td #{currentMerch.price}
+        td #{currentMerch.size}
+        td #{currentMerch.endDate}

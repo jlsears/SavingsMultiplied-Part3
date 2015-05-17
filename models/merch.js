@@ -1,13 +1,12 @@
 var mongoose = require('mongoose');
 
 var merchSchema = mongoose.Schema({
-    endDate: {type: Date, required: true, default: ''},
-    image: {type: String, required: false, default: ''},
+    title: {type: String, required: false, default: '' },
+    size: {type: String, required: false, default: '' },
     price: {type: String, required: false, default: '' },
-    seller: {type: String, required: false, default: '' },
-    title: {type: String, required: false, default: '' }
+    endDate: {type: Date, required: true, default: ''},
 });
 
-var TheMerch = mongoose.model('TheMerch', merchchema);
+var TheMerch = mongoose.model('TheMerch', merchSchema);
 
 module.exports = TheMerch;

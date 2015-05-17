@@ -27,11 +27,10 @@ app.use('/', routes);
 var user = require('./routes/users');
 app.use('/users', user);
 
-var user = require('./routes/users');
-app.use('/users', user);
+var merchy = require('./routes/merchy');
+app.use('/merchy', merchy);
 
-//var merch = require('./routes/merch');
-//app.use('/merch', merch);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

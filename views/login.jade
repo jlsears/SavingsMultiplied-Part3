@@ -8,9 +8,9 @@ head
   h4 Please log in below or  
     a(href='/users/register') register for a new account.
     form#loginForm(method='POST', action='/users/login')
-      .formfield
+      .formfield Username
         input#username(type='text', name='username')
-      .formfield
+      .formfield Password
         input#password(type='password', name='password')
       input.submitButton(type='submit')
 
