@@ -22,14 +22,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 var db = require('./db');
 
 var routes = require('./routes/index');
-app.use('/', routes);
-
 var user = require('./routes/users');
-app.use('/users', user);
-
 var merchy = require('./routes/merchy');
-app.use('/merchy', merchy);
 
+app.use('/', routes);
+app.use('/users', user);
+app.use('/merchy', merchy);
 
 
 // catch 404 and forward to error handler

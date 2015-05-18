@@ -1,20 +1,19 @@
 doctype html(lang='en')
-head
-  title: Registration
-  link(rel='stylesheet', href='../stylesheets/registration.css')
+html
 
   include ./pageheader.jade
 
-    h4 The page for sellers to submit items
+  h4 The page for sellers to submit items
 
-      form#merchSubmitForm(method='POST', action='/merchy')
-        input#title(type='hidden', name='db_id', value='themerch._id')
-      .formfield Title
-        input#title(type='text', name='title')
-      .formfield Size
-        input#size(type='text', name='size')
-      .formfield Price
-        input#price(type='text', name='price')
-      .formfield End Date
-        input#endDate(type='date', name='endDate')
-      input.submitButton(type='submit')
+    .content-here
+      .entering-data
+        form#merchSubmitForm(method='POST', action='/merchy')
+          .formfield Title
+            input#title(type='text', name='title')
+          .formfield Size
+            input#size(type='text', name='size')
+          .formfield Price
+            input#price(type='text', name='price')
+          .formfield End Date
+            input#endDate(type='text', name='endDate')
+          input.submitButton(type='submit')

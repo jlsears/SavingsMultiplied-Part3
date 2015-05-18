@@ -1,8 +1,7 @@
 var UserController = require('../userController');  //gets the current user info required in here (the page that holds it, at least)
 var express = require('express');
 var app = express.Router();
-var merchList = [];
-
+var merchListing = [];
 
 var TheMerch = require('../models/merch');
 var User = require('../models/user');
@@ -22,7 +21,7 @@ var sendError = function (req, res, err, message) {
 // B. Send the merch list back to the client
 
 var sendMerchList = function (req, res, next) {
-  TheMerch.find({}, function (err, merch) {  //What's stored in merch? An array
+  TheMerch.find({}, function (err, merching) {  //What's stored in merch? An array
 
     //Swap out the user._id for user.username in each task
 
@@ -30,11 +29,11 @@ var sendMerchList = function (req, res, next) {
       console.log(theUser.username);
 
     //Loop over the merch array
-    for (var i = 0; i < merch.length; i++) {
-      merch[i].user = theUser.username;  //if you crazily wanted to display password instead, theUser.password
+    for (var i = 0; i < merching.length; i++) {
+      merching[i].user = theUser.username;  //if you crazily wanted to display password instead, theUser.password
     }
 
-    console.log('merch',merch);
+    console.log('merching',merching);
 
     if (err) {
       console.log(err);
@@ -43,21 +42,22 @@ var sendMerchList = function (req, res, next) {
       res.render("merchlist", {
         title: "List of merch",
         message: "Just look at what you've been up to here," + " " + theUser.username + "...",
-        welcome: "Welcome, film fan!",
-        merch: merch
+        welcome: "Welcome, seller!",
+        merchLength: merching.length,
+        merching: merching
       });
     }
   });
 };
 
 
-/* GET users listing/Handle request for merch form */
-app.get("/merchlist", function(req, res) {
+/* GET users listing/Handle request for merch list */
+app.get("/list", function(req, res) {
   console.log('hit merchlist');
   res.render("merchlist");
 });
 
-// C. Handle a GET request from the client to /merch enter/list
+// C. Handle a GET request from the client to /merchy/list
 app.get('/list', function (req,res,next) {
   // Is the user logged in?
   console.log("merch thing happening here");
@@ -79,7 +79,6 @@ app.get('/', function (req, res) {
 
   // Send the movie form back to the client
   res.render('merchsubmission', {
-    title: 'Enter a New Item to Sell',
     themerch: {
       title: '',
       size: '',
@@ -90,42 +89,12 @@ app.get('/', function (req, res) {
 })
 
 
-// G. Handle a POST request from the client to /movieenter
+// G. Handle a POST request from the client to /merchsubmission
 app.post('/', function (req, res, next) {
+  console.log("This is posting form create");
 
   // User is editing an existing item
-  if (req.body.db_id !== "") {
-
-    // Find it
-    TheMerch.findOne({ _id: req.body.db_id }, function (err, foundmerchenter) {
-
-      if (err) {
-        sendError(req, res, err, "Could not find that task");
-      } else {
-        // Found it. Now update the values based on the form POST data.
-        foundmerchenter.title = req.body.title;
-        foundmerchenter.director = req.body.director;
-        foundmerchenter.theater = req.body.theater;
-        foundmerchenter.moviegoers = req.body.fellow_moviegoers;
-        foundmerchenter.rating = req.body.rating;
-        foundmerchenter.genre = req.body.genre;
-        foundmerchenter.date_seen = req.body.date_seen;
-        foundmerchenter.favorite = (req.body.favorite) ? req.body.favorite : false;
-
-        // Save the updated item.
-        foundmerchenter.save(function (err, newOne) {
-          if (err) {
-            sendError(req, res, err, "Could not save task with updated information");
-          } else {
-            res.render('/merchy/list');
-          }
-        });
-      }
-    });
-
-  // User created a new item
-  } else {
-
+ 
     // Who is the user?
     var theUser = UserController.getCurrentUser();
 
@@ -133,19 +102,19 @@ app.post('/', function (req, res, next) {
     var theFormPostData = req.body
     theFormPostData.user = theUser._id;
 
-    console.log('theFormPostData',theFormPostData);
+    console.log('theFormPostData **** Showing reception of data ***** ',theFormPostData);
 
 
     var mymerch = new TheMerch(theFormPostData);
 
     mymerch.save(function (err, mymerch) {
+      console.log(mymerch, '***this is form data saving')
       if (err) {
         sendError(req, res, err, "Failed to save task");
       } else {
-        res.redirect('/merchy/list');
+        res.redirect('merchy/list');
       }
     });
-  }
 });
 
 //GET the user id for retrieving stored form data if logged in

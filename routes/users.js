@@ -5,7 +5,7 @@ var UserController = require('../userController');
 var UserModel = require('../models/user');
 var Merch = require('../models/merch');
 var TheMerch = require('../models/merch');
-var merchList = [];
+var merchListing = [];
 
 
 // Send the error message back to the client
@@ -18,6 +18,26 @@ var sendError = function (req, res, err, message) {
     },
     message: message
   });
+};
+
+// Retrieve all merch for the current user
+var getUserMerch = function (userId) {
+  var deferred = Q.defer();
+
+  console.log('Another promise to let the calling function know when the database lookup is complete');
+
+  TheMerch.find({user: userId}, function (err, merch) {
+    if (!err) {
+      console.log('Merch found = ' + merch.length);
+      console.log('No errors when looking up merch. Resolve the promise (even if none were found).');
+      deferred.resolve(merch);
+    } else {
+      console.log('There was an error looking up merch. Reject the promise.');
+      deferred.reject(err);
+    }
+  })
+
+  return deferred.promise;
 };
 
 
