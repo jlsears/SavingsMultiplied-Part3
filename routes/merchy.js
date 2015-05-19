@@ -52,9 +52,9 @@ var sendMerchList = function (req, res, next) {
 
 
 /* GET users listing/Handle request for merch list */
-app.get("/list", function(req, res) {
+app.get("/list", function(req, res, next) {
   console.log('hit merchlist');
-  res.render("merchlist");
+  sendMerchList(req, res, next);
 });
 
 // C. Handle a GET request from the client to /merchy/list

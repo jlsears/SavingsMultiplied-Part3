@@ -4,11 +4,9 @@ head
   include ./pageheader.jade
 
   h4 The page for seller list data
-
-    - for (var m = 0; m < #{merchLength}; m++)
-      var currentMerch = merching[m];
-        tr#merch_currentMerch._id
-          td #{currentMerch.title}
-          td #{currentMerch.price}
-          td #{currentMerch.size}
-          td #{currentMerch.endDate}
+  each merch in merching
+    ul(id="#{'merch_'+merch._id}")
+      li #{merch.title}
+      li #{merch.price}
+      li #{merch.size}
+      li #{merch.endDate}
