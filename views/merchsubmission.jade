@@ -8,12 +8,15 @@ html
     .content-here
       .entering-data
         form#merchSubmitForm(method='POST', action='/merchy')
+          input#hidden(type='hidden', name='title', value="#{'merch_'+merch._id}")
           .formfield Title
-            input#title(type='text', name='title')
+            input#title(type='text', name='title', value='#{merch._title}')
           .formfield Size
-            input#size(type='text', name='size')
+            input#size(type='text', name='size', value='#{merch._size}')
           .formfield Price
-            input#price(type='text', name='price')
+            input#price(type='text', name='price', value='#{merch._price}')
           .formfield End Date
-            input#endDate(type='text', name='endDate')
+            input#endDate(type='text', name='endDate', value='#{merch._endDate}')
           input.submitButton(type='submit')
+
+  include ./pagefooter.jade

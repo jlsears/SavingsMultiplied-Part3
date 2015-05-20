@@ -10,3 +10,9 @@ head
       li #{merch.price}
       li #{merch.size}
       li #{merch.endDate}
+      button.btn.btn-warning.dropdown-toggle.deleteButton(id='#{merch._id}', type='button', data-toggle='dropdown', aria-expanded='false') Delete
+        a(href='..routes/merchy/delete')
+      button.btn.btn-warning.dropdown-toggle.editButton(id='#{merch._id}', type='button', data-toggle='dropdown', aria-expanded='false') Edit
+        a(href='/merchy/:id')
+
+  include ./pagefooter.jade
