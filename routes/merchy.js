@@ -72,6 +72,7 @@ app.get('/', function (req, res) {
   // Send the movie form back to the client
   res.render('merchsubmission', {
     merch: {
+      _id: '',
       title: '',
       size: '',
       price: '',
@@ -85,7 +86,7 @@ app.get('/', function (req, res) {
 app.post('/', function (req, res, next) {
   console.log("This is posting form create");
 
-  // User is editing an existing item
+  //User is editing an existing item
   if (req.body.db_id !== "") {
 
     // Find it
@@ -134,7 +135,7 @@ app.post('/', function (req, res, next) {
         res.redirect('/merchy/list');
       }
     });
-  }
+   }
 });
 
 
@@ -175,7 +176,7 @@ app.get('/:id', function (req, res) {
     } else {
       res.render('merchsubmission', {
         title : 'Express Merch Example',
-        themerch: thisMerch
+        merch: thisMerch
       });
     }
   });

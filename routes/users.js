@@ -95,6 +95,11 @@ app.post("/login", function (req, res) {
         });
 });
 
+//Handle the logout function
+app.get("/logout", function (req, res) {
+UserController.logout();
+res.redirect("/");
+});
 
 //Handle user profile page
 app.get("/profile", function (req, res) {

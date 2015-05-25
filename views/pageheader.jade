@@ -4,7 +4,8 @@ head
   title: SM2-Home
   link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css')
   link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Corben:400,700')
-  link(rel='stylesheet', href='../stylesheets/auction.css')
+  link(rel='stylesheet', href='../stylesheets/index.css')
+  link(rel='stylesheet', href='../stylesheets/headerfooter.css')
 
 body
 
@@ -12,7 +13,13 @@ body
     .container-fluid
       .row
         .col-md-12.lt-blue.top
-          p.signing-up Sign in | Sign up
+            p.signing-up  
+              a(href='/users/login') Sign in
+            p.signing-up
+              a(href='/users/register') Sign up
+            p.signing-up
+              a(href='/users/logout') Logout
+
 
       .row
         .col-md-2.lt-blue.top-height
@@ -43,7 +50,7 @@ body
           ul.nav.navbar-nav
             li: a(href='#') Buy 
                 span.sr-only (current)
-            li: a(href='#') Sell 
+            li: a(href='/merchy') Sell 
                 span.sr-only (current)
             li: a(href='#') How it Works
                 span.sr-only (current)

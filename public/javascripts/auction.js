@@ -25,6 +25,26 @@ $(document).ready(function() {
     }
   })
 
+      $(".editButton").click(function () {
+    window.location.href = "/merchy/" + $(this)[0].id;
+  });
+
+  // User clicked on a delete button
+  $(".deleteButton").click(function () {
+    var merchItemId = $(this)[0].id;
+
+    $.ajax({
+      url: "/merchy",
+      method: "DELETE",
+      data: {
+        merch_id: merchItemId
+      },
+      success: function (response) {
+        $("#merch_"+merchItemId).remove();  // Remove the DOM element on success
+      }
+    });
+  });
+
     sliderStuff.outputUpdate = function(price, id) {
     $('#js-' + id).val(price);
     }

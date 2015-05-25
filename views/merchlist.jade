@@ -4,15 +4,22 @@ head
   include ./pageheader.jade
 
   h4 The page for seller list data
-  each merch in merching
-    ul(id="#{'merch_'+merch._id}")
-      li #{merch.title}
-      li #{merch.price}
-      li #{merch.size}
-      li #{merch.endDate}
-      button.btn.btn-warning.dropdown-toggle.deleteButton(id='#{merch._id}', type='button', data-toggle='dropdown', aria-expanded='false') Delete
-        a(href='..routes/merchy/delete')
-      button.btn.btn-warning.dropdown-toggle.editButton(id='#{merch._id}', type='button', data-toggle='dropdown', aria-expanded='false') Edit
-        a(href='/merchy/:id')
+
+    .part-two
+      .row
+        .col-md-2.dk-blue.bottom-height
+        .col-md-8.white.bottom-height-list
+          .list-body
+          each merch in merching
+            ul(id="#{'merch_'+merch._id}")
+              li #{merch.title}
+              li #{merch.price}
+              li #{merch.size}
+              li #{merch.endDate}
+              button.btn.btn-warning.dropdown-toggle.deleteButton(id='#{merch._id}', type='button', data-toggle='dropdown', aria-expanded='false') Delete
+                a(href='..routes/merchy/delete')
+              button.btn.btn-warning.dropdown-toggle.editButton(id='#{merch._id}', type='button', data-toggle='dropdown', aria-expanded='false') Edit
+                a(href='/merchy/:id')
+        .col-md-2.dk-blue.bottom-height
 
   include ./pagefooter.jade

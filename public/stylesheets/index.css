@@ -1,4 +1,8 @@
 
+/***************************
+GENERAL COLORS
+***************************/
+
 .part-one {
     background-color: #D5F1F0;    
 }
@@ -113,6 +117,14 @@ BELOW NAV BAR
     margin-bottom: 10px;
 }
 
+.bottom-height-list {
+    height: 1200px;
+}
+
+.bottom-height-form {
+    height: 300px;
+}
+
 .bottom-height {
     height: 175px;
 }
@@ -142,7 +154,6 @@ Owlies
     width: 100%;
     color: #69C4CC;
     font-size: 20px;
-
 }
 
 .many-owlies {
@@ -170,6 +181,10 @@ BOTTOM OF PAGE
     text-decoration: none;
 }
 
+.link-list li a {
+    color: white;
+}
+
 .bottom {
     padding-bottom: 150px;
     text-align: center;
@@ -189,6 +204,10 @@ li {
     border-bottom-left-radius: 50px;
 }
 
-.link-list li a {
-    color: white;
+/************************************
+OTHER MAIN SECTIONS
+************************************/
+
+.list-body {
+    max-width: 80%;
 }
